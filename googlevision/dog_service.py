@@ -1,5 +1,5 @@
 # coding:utf-8
-import os
+import io
 import uuid
 
 from flask import Flask
@@ -19,9 +19,11 @@ class VerificationCode(Resource):
     @staticmethod
     def post():
         image = request.files['image']
-        # str_64 = request.data
-        # image = base64.decodestring(str_64)
-        if dog_reg.is_dog(image):
+        image_path = '/home/tmp.jpeg'
+        file = image.save(image_path)
+        with io.open(file, 'rb') as image_file:
+            content = image_file.read()
+        if dog_reg.is_dog(content):
             code = True
         else:
             code = False
