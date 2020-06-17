@@ -5,7 +5,7 @@ import uuid
 from flask import Flask
 from flask import request
 from flask_restful import Api, reqparse, Resource
-import dog2
+import dog_reg
 import base64
 
 app = Flask(__name__)
@@ -18,9 +18,10 @@ class VerificationCode(Resource):
 
     @staticmethod
     def post():
-        str_64 = request.data
-        image = base64.decodestring(str_64)
-        if dog2.is_dog(image):
+        image = request.files['image']
+        # str_64 = request.data
+        # image = base64.decodestring(str_64)
+        if dog_reg.is_dog(image):
             code = True
         else:
             code = False
