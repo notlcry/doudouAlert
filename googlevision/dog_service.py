@@ -21,7 +21,7 @@ class VerificationCode(Resource):
         image = request.files['image']
         image_path = '/home/tmp.jpeg'
         file = image.save(image_path)
-        with io.open(file, 'rb') as image_file:
+        with io.open(image_path, 'rb') as image_file:
             content = image_file.read()
         if dog_reg.is_dog(content):
             code = True
