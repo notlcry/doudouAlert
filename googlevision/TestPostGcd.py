@@ -4,7 +4,7 @@ url = "http://35.206.250.159:10050/detect"
 
 payload = {}
 files = [
-  ('image', open('/Users/yuhui/Desktop/trainning/doudou/dog_20200307200037570583.jpeg','rb'))
+  ('image', open('/Users/yuhui/Desktop/doudou/dog_20200314134215_85.546875.jpeg','rb'))
 ]
 headers= {}
 
