@@ -21,8 +21,8 @@ def is_dog(img):
     try:
         result = get_prediction(img)
         for label in result:
+            print(label)
             if "dog" in label.description.lower():
-                print(label)
                 return True
     except Exception as e:
         print('detect error' + str(e))
